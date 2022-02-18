@@ -1,10 +1,23 @@
-<h1><%= @list.name %></h1>
-<% @list.bookmarks.each do |bookmark| %>
-  <h3><%= bookmark.comment %> <%= link_to "Delete Bookmark", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %></h3>
-  <h5>Title: <%= bookmark.movie.title %></h5>
-  <img src="<%= bookmark.movie.poster_url %>" alt="">
-  <p>Overview: <%= bookmark.movie.overview %></p>
-  <p>Rating: <%= bookmark.movie.rating %></p>
-<% end %>
 
-<p><%= link_to "Go back to Lists", lists_path %></p>
+
+<div class="container">
+  <h1><%= @list.name %></h1>
+  <div class="container d-flex flex-wrap">
+    <ul>
+      <% @list.bookmarks.each do |bookmark| %>
+      <li class="m-1">
+        <img class="card-img-top" src="<%= bookmark.movie.poster_url %>" alt="movie poster">
+        <div class="card p-1" style="width: 18rem;">
+          <h5 class="card-title"><%= bookmark.movie.title %></h5>
+          <p class="card-text">Overview: <%= bookmark.movie.overview %></p>
+          <p class="card-text">Rating: <%= bookmark.movie.rating %></p>
+          <p class="card-text">Comment: <%= bookmark.comment %></p>
+          <a <%= link_to "Delete Bookmark", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-dark" %></a>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<p><%= link_to "Go back to Lists", root_path %></p>
