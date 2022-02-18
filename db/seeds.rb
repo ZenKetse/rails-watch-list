@@ -2,6 +2,7 @@ require 'faker'
 
 puts 'Destroying database'
 
+Bookmark.destroy_all
 Movie.destroy_all
 List.destroy_all
 
