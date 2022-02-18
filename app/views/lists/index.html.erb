@@ -1,22 +1,27 @@
-<div class="banner">
-  <div class="container">
-    <h1>All Movie Lists</h1>
-    <h3><%= link_to "Create a new List", new_list_path, class: "btn btn-secondary mx-4" %></h3>
-
-    <ul class="d-flex flex-wrap">
-      <% @lists.each do |list| %>
-        <li>
-          <div class="card m-2" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><%= list.name %></h5>
-              <h6 class="card-subtitle mb-2 text-muted"></h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="<%= list_path(list) %>" class="card-link btn btn-dark">List Details</a>
-              <a href="<%= new_list_bookmark_path(list) %>" class="card-link btn btn-dark">Create Bookmark</a>
-            </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+<div class="banner d-flex  justify-content-center align-items-center">
+  <div class="header">
+    <h1 class="justify-content-center items-align-center">All Movie Lists</h1>
+    <h3>Keep track of all your watch lists</h3>
   </div>
+</div>
+
+<div class="container screen p-10">
+
+  <h3><%= link_to "Create a new List", new_list_path, class: "btn btn-secondary mx-4" %></h3>
+
+  <ul class="d-flex flex-wrap" style="list-style: none;">
+    <% @lists.each do |list| %>
+      <li>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= list.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"></h6>
+            <p class="card-text"></p>
+            <a href="<%= list_path(list) %>" class="card-link btn btn-dark btn-sm">List Details</a>
+            <a href="<%= new_list_bookmark_path(list) %>" class="card-link btn btn-dark btn-sm">Create Bookmark</a>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

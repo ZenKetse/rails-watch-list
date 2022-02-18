@@ -14,8 +14,16 @@ Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal masterm
 
 10.times do
   Movie.create(title: Faker::Movie.title, overview: Faker::Movie.quote, rating: rand(0..10.0).round(1))
-  List.create(name: Faker::Book.genre)
 end
+
+List.create(name: 'Action')
+List.create(name: 'Adventure')
+List.create(name: 'Animated')
+List.create(name: 'Comedy')
+List.create(name: 'Drama')
+List.create(name: 'Fantasy')
+List.create(name: 'Horror')
+List.create(name: 'Thriller')
 
 puts "Created #{Movie.count} movies"
 puts "Created #{List.count} lists"
